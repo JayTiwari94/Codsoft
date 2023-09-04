@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <title>Simple Calculator</title>
+        <style>  
+            #calculator {
+                width: 224px;
+                margin: 100 220 250 510;
+
+                padding: 20px;
+                border: 1px solid rgba(54, 112, 95);
+                border-radius: 18px;
+                box-shadow: 15px 15px 15px rgba(2, 2, 2, 0.7);
+                background-color: rgb(151, 123, 62);
+            }
+            input[type='text']{
+                width: 100%;
+                padding: 5px;
+                border-radius: 20px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.5);
+                margin-bottom: 10px;
+                font-size: 30px;
+                
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                background-color: rgb(104, 130, 156);
+            }
+            input[type="button"]{
+                width: 48px;
+                margin-right: 5px;
+                border-radius: 15px;
+                padding-bottom: 4px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.6);
+                cursor:pointer;
+                height: 48px;
+                font-family: Georgia, 'Times New Roman', Times, serif , bold;
+                color: rgb(80, 31, 69);
+                background-color:rgb(75, 134, 100) ;
+            }
+        </style>
+    </head>
+    <body style="background-image: url(https://www.marktechpost.com/wp-content/uploads/2023/01/colorful-mountains-abstract-watercolor-digital-painting-scaled.jpg); background-size: cover">
+		
+        <div id="calculator">
+            <input type="text" id="display" readonly>
+            <div>
+                <input type="button" value="1" onclick="addToDisplay('1')">
+                <input type="button" value="2" onclick="addToDisplay('2')">
+                <input type="button" value="3" onclick="addToDisplay('3')">
+                <input type="button" value="+" onclick="addToDisplay('+')">
+            </div>
+            <div>
+                <input type="button" value="4" onclick="addToDisplay('4')">
+                <input type="button" value="5" onclick="addToDisplay('5')">
+                <input type="button" value="6" onclick="addToDisplay('6')">
+                <input type="button" value="-" onclick="addToDisplay('-')">
+            </div>
+            <div>
+                <input type="button" value="7" onclick="addToDisplay('7')">
+                <input type="button" value="8" onclick="addToDisplay('8')">
+                <input type="button" value="9" onclick="addToDisplay('9')">
+                <input type="button" value="*" onclick="addToDisplay('*')">
+            </div>
+            <div>
+                <input type="button" value="0" onclick="addToDisplay('0')">
+                <input type="button" value="C" onclick="clearDisplay('C')">
+                <input type="button" value="=" onclick="calculate('=')">
+                <input type="button" value="/" onclick="addToDisplay('/')">
+            </div>
+        </div>
+        <script>
+            function addToDisplay(value){
+                document.getElementById('display').value +=value;
+            }
+            function clearDisplay(){
+                document.getElementById('display').value ='';
+            }
+            function calculate(){
+                try {
+                    document.getElementById('display').value = eval(document.getElementById('display').value);
+                }catch(error){
+                    document.getElementById('display').value ='Error';
+                }
+            }
+        </script>
+    </body>
+</html>
